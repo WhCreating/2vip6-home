@@ -1,31 +1,39 @@
 /* =========================================================
-   Terminal — меню, клавиатура, установка (копирование), форма связи
+   Terminal — меню (desktop + mobile footer), клавиатура, копирование, форма
    ========================================================= */
 (function (global) {
     'use strict';
 
     const Terminal = {
         selectedIndex: 0,
-        menuItems: [],
+        menuItems: [],       // элементы desktop-меню
+        footerNavItems: [],  // элементы мобильного footer-меню
 
         init() {
-            this.menuItems = Array.from(document.querySelectorAll('.menu__item'));
+            this.menuItems = Array.from(document.querySelectorAll('#menu-desktop .menu__item'));
+            this.footerNavItems = Array.from(document.querySelectorAll('#menu-mobile .footer-nav__item'));
+
             this.bindMenu();
             this.bindKeyboard();
             this.bindCopy();
             this.bindContactForm();
-            this.bindInstallLinks();
             this.updateMenuSelection();
         },
 
         /* ---------- Меню ---------- */
         bindMenu() {
+            // Desktop
             this.menuItems.forEach((item, idx) => {
                 item.addEventListener('click', () => this.selectSection(idx));
                 item.addEventListener('mouseenter', () => {
                     this.selectedIndex = idx;
                     this.updateMenuSelection();
                 });
+            });
+
+            // Mobile footer
+            this.footerNavItems.forEach((item, idx) => {
+                item.addEventListener('click', () => this.selectSection(idx));
             });
         },
 
@@ -39,12 +47,10 @@
                 s.classList.toggle('section--active', s.id === sectionId);
             });
 
-            // Скролл к конкретному блоку внутри секции
             const content = document.querySelector('.content');
             if (scrollToId && content) {
                 const target = document.getElementById(scrollToId);
                 if (target) {
-                    // используем requestAnimationFrame чтобы дать секции стать видимой
                     requestAnimationFrame(() => {
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     });
@@ -53,17 +59,22 @@
                 content.scrollTop = 0;
             }
 
-            // Хэш в URL
             const hash = scrollToId ? `#${scrollToId}` : `#${sectionId}`;
             if (history.replaceState) history.replaceState(null, '', hash);
         },
 
         updateMenuSelection() {
+            // Desktop
             this.menuItems.forEach((item, idx) => {
                 const selected = idx === this.selectedIndex;
                 item.classList.toggle('menu__item--selected', selected);
                 const pointer = item.querySelector('.pointer');
                 if (pointer) pointer.textContent = selected ? '▶' : ' ';
+            });
+
+            // Mobile footer
+            this.footerNavItems.forEach((item, idx) => {
+                item.classList.toggle('footer-nav__item--selected', idx === this.selectedIndex);
             });
         },
 
@@ -98,7 +109,7 @@
             });
         },
 
-        /* ---------- Установка: копирование ---------- */
+        /* ---------- Копирование ---------- */
         bindCopy() {
             document.querySelectorAll('.copy-btn').forEach((btn) => {
                 btn.addEventListener('click', async () => {
@@ -109,7 +120,6 @@
                     try {
                         await navigator.clipboard.writeText(text);
                     } catch {
-                        // fallback
                         const ta = document.createElement('textarea');
                         ta.value = text;
                         document.body.appendChild(ta);
@@ -123,20 +133,6 @@
                         btn.classList.remove('is-copied');
                         btn.textContent = '⧉';
                     }, 1200);
-                });
-            });
-        },
-
-        /* ---------- Ссылки "установить" с главной ---------- */
-        bindInstallLinks() {
-            // Пункты меню, ведущие на главную, могут скроллить к #install
-            document.querySelectorAll('a[data-goto-section]').forEach((a) => {
-                a.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const section = a.getAttribute('data-goto-section');
-                    const target = a.getAttribute('data-goto-target');
-                    const idx = this.menuItems.findIndex((it) => it.dataset.section === section);
-                    if (idx >= 0) this.selectSection(idx, target || null);
                 });
             });
         },
@@ -157,7 +153,6 @@
                 const t = (k) => global.I18n ? global.I18n.t(k) : k;
                 status.textContent = t('contact.form.sending');
 
-                // Здесь можно заменить на реальную отправку (fetch на ваш бэкенд)
                 setTimeout(() => {
                     status.textContent = t('contact.form.success');
                     form.reset();

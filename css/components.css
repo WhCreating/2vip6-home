@@ -277,7 +277,11 @@
     transition: border-color var(--transition), background var(--transition);
 }
 
-.roadmap__icon { font-size: 2em; color: var(--frame-label); }
+.roadmap__icon {
+    font-size: 2em;
+    color: var(--frame-label);
+    line-height: 1;
+}
 
 .roadmap__body { flex: 1; min-width: 200px; }
 
@@ -345,8 +349,24 @@
 
 .contact-card__icon {
     grid-row: 1 / span 2;
-    font-size: 1.6em;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--frame-label);
+    transition: color var(--transition), transform var(--transition);
+}
+
+.contact-card__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.contact-card:hover .contact-card__icon {
+    color: var(--item-selected);
+    transform: scale(1.08);
 }
 
 .contact-card__name { color: var(--frame-label); font-weight: bold; }

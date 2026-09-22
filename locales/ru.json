@@ -1,6 +1,6 @@
 {
-    "title": "TUI Console — терминальный интерфейс",
-    "header": { "logo": "▓ TUI://CONSOLE" },
+    "title": "2vip6 — терминальный интерфейс",
+    "header": { "logo": "▓ 2VIP6://CONSOLE" },
     "frame": { "label": "[ ГЛАВНОЕ_МЕНЮ ]" },
     "theme": {
         "toggle": "Сменить тему",
@@ -13,7 +13,7 @@
         "news": "Новости",
         "roadmap": "Roadmap",
         "contact": "Связь",
-        "hint": "v1.0.0"
+        "hint": "v0.0.1"
     },
     "home": {
         "about": {
@@ -67,6 +67,7 @@
     },
     "footer": {
         "hint": "↑↓ — навигация │ ENTER — выбор │ TAB — поле",
-        "lang": "Язык:"
+        "lang": "Язык:",
+        "copyright": "© 2026 TUI Console. Все права защищены."
     }
 }

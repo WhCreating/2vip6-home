@@ -1,50 +1,97 @@
+/* =====================================================
+   Desktop / large tablet
+   ===================================================== */
 @media (max-width: 900px) {
     .frame__body { grid-template-columns: 200px 1fr; }
 }
 
+/* =====================================================
+   Tablet — desktop menu сжимается, но остаётся слева
+   ===================================================== */
+@media (max-width: 720px) and (min-width: 601px) {
+    .frame__body { grid-template-columns: 180px 1fr; }
+    .menu__title { font-size: 0.7rem; }
+    .menu__item { font-size: var(--fs-sm); }
+    .roadmap__embed-frame { height: 450px; }
+}
+
+/* =====================================================
+   MOBILE (≤ 720px) — навигация переезжает в footer
+   ===================================================== */
 @media (max-width: 720px) {
-    .terminal { border-left: none; border-right: none; }
+    .terminal {
+        border-left: none;
+        border-right: none;
+    }
+
     .frame { margin: var(--gap-xs); }
 
     .frame__body {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: 1fr;
     }
 
-    .menu {
-        flex-direction: row;
-        align-items: center;
-        padding: var(--gap-sm);
-        border-bottom: 1px solid var(--frame-border);
-        overflow-x: auto;
-        overflow-y: visible;
-        gap: var(--gap-xs);
+    /* Desktop-меню скрыто */
+    .menu { display: none; }
+
+    /* Контент теперь занимает всю ширину без border-left */
+    .content {
+        border-left: none;
+        padding: var(--gap-md) var(--gap-sm);
     }
 
-    .menu__title, .menu__footer { display: none; }
-    .menu__list { flex-direction: row; gap: var(--gap-xs); }
-
-    .menu__item {
-        white-space: nowrap;
-        padding: var(--gap-xs) var(--gap-sm);
-        font-size: var(--fs-sm);
-    }
-    .menu__item .pointer { display: none; }
-
-    .content { border-left: none; border-top: 1px solid var(--frame-border); }
-    .ascii { font-size: 0.65rem; }
+    .ascii { font-size: 0.6rem; }
     .content__title { font-size: var(--fs-lg); }
-    .roadmap__embed-frame { height: 450px; }
+
+    /* Footer: становится двухстрочным */
+    .terminal__footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--gap-xs);
+        padding: var(--gap-xs) var(--gap-sm) 0;
+    }
+
+    /* Скрываем подсказку по клавишам — на мобильных неактуальна */
+    .terminal__footer-hint { display: none; }
+
+    /* Правая часть — copyright + язык — в одну строку */
+    .terminal__footer-right {
+        justify-content: space-between;
+        padding: 0 var(--gap-xs);
+        order: 1;
+        width: 100%;
+    }
+
+    .terminal__copyright { font-size: 0.7rem; }
+    .terminal__footer-lang { font-size: 0.75rem; }
+
+    /* Мобильная навигация появляется и идёт в самый низ */
+    .footer-nav {
+        display: grid;
+        order: 2;
+        width: 100%;
+        border-top: 1px solid var(--frame-border);
+        margin-top: var(--gap-xs);
+        padding-top: var(--gap-xs);
+    }
+
+    .roadmap__embed-frame { height: 420px; }
 }
 
+/* =====================================================
+   Small phones
+   ===================================================== */
 @media (max-width: 480px) {
-    .terminal__header { padding: var(--gap-xs) var(--gap-sm); font-size: 0.75rem; }
+    .terminal__header {
+        padding: var(--gap-xs) var(--gap-sm);
+        font-size: 0.75rem;
+    }
     .terminal__logo { font-size: 0.75rem; }
     .theme-btn__label { display: none; }
 
     .frame__label { font-size: 0.7rem; left: var(--gap-sm); }
     .content { padding: var(--gap-sm); }
-    .ascii { font-size: 0.5rem; line-height: 1; }
+    .ascii { font-size: 0.48rem; line-height: 1; }
     .content__title { font-size: var(--fs-md); }
 
     .block { padding: var(--gap-sm); }
@@ -53,9 +100,15 @@
     .install__line { flex-wrap: wrap; }
     .install__cmd { font-size: 0.75rem; }
 
-    .chat { min-height: 320px; }
-    .chat__send { padding: var(--gap-xs) var(--gap-sm); font-size: 0.7rem; }
-    .terminal__footer { font-size: 0.7rem; padding: var(--gap-xs) var(--gap-sm); }
+    .terminal__footer { padding: var(--gap-xs) var(--gap-sm) 0; }
+    .terminal__copyright { font-size: 0.65rem; }
+    .terminal__footer-lang { font-size: 0.7rem; }
+
+    .footer-nav__item {
+        font-size: 0.58rem;
+        padding: var(--gap-xs) 2px;
+    }
+    .footer-nav__item svg { width: 18px; height: 18px; }
 
     .form__actions { flex-direction: column; }
     .button { width: 100%; text-align: center; }
@@ -66,17 +119,52 @@
     .roadmap__btn { width: 100%; }
 }
 
+/* =====================================================
+   Landscape phones
+   ===================================================== */
 @media (max-height: 480px) and (orientation: landscape) {
     .terminal { min-height: 100vh; }
-    .frame__body { grid-template-columns: 180px 1fr; grid-template-rows: 1fr; }
-    .menu { flex-direction: column; overflow-x: visible; overflow-y: auto; }
+
+    /* В landscape на телефоне возвращаем боковое меню — так удобнее */
+    .frame__body {
+        grid-template-columns: 180px 1fr;
+        grid-template-rows: 1fr;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: visible;
+        padding: var(--gap-sm);
+    }
     .menu__title, .menu__footer { display: block; }
     .menu__list { flex-direction: column; }
     .menu__item { white-space: normal; }
     .menu__item .pointer { display: inline-block; }
-    .content { border-left: 1px solid var(--frame-border); border-top: none; }
+
+    .content {
+        border-left: 1px solid var(--frame-border);
+        border-top: none;
+    }
+
+    /* На landscape footer-nav скрываем — используем боковое меню */
+    .footer-nav { display: none; }
+    .terminal__footer-hint { display: block; }
+
+    .terminal__footer {
+        flex-direction: row;
+        align-items: center;
+        padding: var(--gap-xs) var(--gap-md);
+    }
+    .terminal__footer-right {
+        justify-content: flex-end;
+        width: auto;
+    }
 }
 
+/* =====================================================
+   Large screens
+   ===================================================== */
 @media (min-width: 1400px) {
     .terminal { width: min(1400px, 100%); }
     .frame__body { grid-template-columns: 280px 1fr; }

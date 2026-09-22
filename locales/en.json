@@ -1,6 +1,6 @@
 {
-    "title": "TUI Console — terminal interface",
-    "header": { "logo": "▓ TUI://CONSOLE" },
+    "title": "2vip6 — terminal interface",
+    "header": { "logo": "▓ 2VIP6://CONSOLE" },
     "frame": { "label": "[ MAIN_MENU ]" },
     "theme": {
         "toggle": "Toggle theme",
@@ -13,7 +13,7 @@
         "news": "News",
         "roadmap": "Roadmap",
         "contact": "Contact",
-        "hint": "v1.0.0"
+        "hint": "v0.0.1"
     },
     "home": {
         "about": {
@@ -67,6 +67,7 @@
     },
     "footer": {
         "hint": "↑↓ — navigate │ ENTER — select │ TAB — field",
-        "lang": "Lang:"
+        "lang": "Lang:",
+        "copyright": "© 2026 TUI Console. All rights reserved."
     }
 }

@@ -1,0 +1,155 @@
+/* =====================================================
+   ТЁМНАЯ ТЕМА (по умолчанию)
+   ===================================================== */
+:root,
+[data-theme="dark"] {
+    --bg-body: #15171c;
+    --bg-panel: #1b1d23;
+    --bg-elevated: #232630;
+
+    --bg-header: #1b1d23;
+    --fg-header: #e8eaf0;
+    --bg-footer: #1b1d23;
+    --fg-footer: #6b7280;
+
+    --frame-border: #3a4152;
+    --frame-label: #8ab4f8;
+
+    --pointer: #4a5165;
+    --pointer-selected: #8ab4f8;
+
+    --item: #9ca3b8;
+    --item-selected: #f0f2f8;
+
+    --text-on: #5fd08a;
+    --text-on-selected: #7ee0a8;
+    --text-off: #e06c75;
+    --text-off-selected: #f08892;
+
+    --dialog-bg: #232630;
+    --dialog-border: #5a6b8c;
+    --dialog-label: #c8d0e0;
+    --dialog-message: #e8eaf0;
+
+    --button-bg: #2e3340;
+    --button-fg: #9ca3b8;
+    --button-focused-bg: #4a7bc8;
+    --button-focused-fg: #ffffff;
+
+    --label: #8ab4f8;
+    --value: #e8eaf0;
+    --value-locked: #e5c07b;
+
+    --chat-frame-border: #4a7bc8;
+    --chat-frame-label: #8ab4f8;
+    --chat-empty: #5a6070;
+    --chat-input: #e8eaf0;
+    --chat-separator: #2e3340;
+    --chat-time: #6b7280;
+    --chat-author: #56b6c2;
+    --chat-text: #d4d8e2;
+    --chat-author-admin: #e06c75;
+    --chat-text-admin: #f0b8bc;
+    --chat-author-mod: #e5c07b;
+    --chat-text-mod: #f0dcb0;
+    --chat-role: #a78bfa;
+    --chat-self-label: #5fd08a;
+    --chat-author-me: #5fd08a;
+    --chat-text-me: #b8e8c8;
+    --chat-system: #e5c07b;
+    --chat-system-text: #e8d8b0;
+
+    --ascii: #8ab4f8;
+
+    --shadow: 0 0 0 1px rgba(255,255,255,0.02);
+    --code-bg: #232630;
+}
+
+/* =====================================================
+   СВЕТЛАЯ ТЕМА
+   ===================================================== */
+[data-theme="light"] {
+    --bg-body: #f4f6fa;
+    --bg-panel: #ffffff;
+    --bg-elevated: #eef1f6;
+
+    --bg-header: #e6eaf2;
+    --fg-header: #1b1d23;
+    --bg-footer: #e6eaf2;
+    --fg-footer: #4a5165;
+
+    --frame-border: #c8d0e0;
+    --frame-label: #2c5aa0;
+
+    --pointer: #a8b0c0;
+    --pointer-selected: #2c5aa0;
+
+    --item: #4a5165;
+    --item-selected: #15171c;
+
+    --text-on: #1e8a4e;
+    --text-on-selected: #15693b;
+    --text-off: #c0392b;
+    --text-off-selected: #a02c20;
+
+    --dialog-bg: #eef1f6;
+    --dialog-border: #a8b6cc;
+    --dialog-label: #2c5aa0;
+    --dialog-message: #15171c;
+
+    --button-bg: #e0e5ed;
+    --button-fg: #2c3a52;
+    --button-focused-bg: #2c5aa0;
+    --button-focused-fg: #ffffff;
+
+    --label: #2c5aa0;
+    --value: #15171c;
+    --value-locked: #a06a00;
+
+    --chat-frame-border: #2c5aa0;
+    --chat-frame-label: #2c5aa0;
+    --chat-empty: #8a94a8;
+    --chat-input: #15171c;
+    --chat-separator: #d8dee8;
+    --chat-time: #8a94a8;
+    --chat-author: #1f7a89;
+    --chat-text: #2c3a52;
+    --chat-author-admin: #c0392b;
+    --chat-text-admin: #8a2c22;
+    --chat-author-mod: #a06a00;
+    --chat-text-mod: #7a4d00;
+    --chat-role: #6b4fbf;
+    --chat-self-label: #1e8a4e;
+    --chat-author-me: #1e8a4e;
+    --chat-text-me: #15693b;
+    --chat-system: #a06a00;
+    --chat-system-text: #7a4d00;
+
+    --ascii: #2c5aa0;
+
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+    --code-bg: #eef1f6;
+}
+
+/* =====================================================
+   Общие переменные
+   ===================================================== */
+:root {
+    --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Menlo, Consolas,
+        "Liberation Mono", monospace;
+
+    --fs-sm: 0.8125rem;
+    --fs-md: 0.9375rem;
+    --fs-lg: 1.05rem;
+    --fs-xl: 1.35rem;
+    --fs-2xl: 1.6rem;
+
+    --gap-xs: 4px;
+    --gap-sm: 8px;
+    --gap-md: 16px;
+    --gap-lg: 24px;
+    --gap-xl: 40px;
+
+    --radius: 0;
+    --transition: 0.18s ease;
+}

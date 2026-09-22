@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TUI-style website">
+    <title data-i18n="title">TUI Console</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="terminal">
+        <!-- ===================== Header ===================== -->
+        <header class="terminal__header">
+            <div class="terminal__header-left">
+                <span class="terminal__logo" data-i18n="header.logo">▓ TUI://CONSOLE</span>
+            </div>
+            <div class="terminal__header-right">
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                    <span class="lang-divider">│</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <span class="header-divider">│</span>
+                <button class="theme-btn" id="theme-toggle" data-i18n-title="theme.toggle" title="Сменить тему">
+                    <span class="theme-btn__icon" id="theme-icon">☾</span>
+                    <span class="theme-btn__label" data-i18n="theme.dark">DARK</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- ===================== Frame ===================== -->
+        <div class="frame">
+            <div class="frame__label" data-i18n="frame.label">[ ГЛАВНОЕ_МЕНЮ ]</div>
+
+            <div class="frame__body">
+                <!-- ============ Sidebar / Navigation ============ -->
+                <nav class="menu" aria-label="Main menu">
+                    <div class="menu__title" data-i18n="menu.title">── НАВИГАЦИЯ ──</div>
+                    <ul class="menu__list" role="menu">
+                        <li class="menu__item menu__item--selected" data-section="home" role="menuitem" tabindex="0">
+                            <span class="pointer">▶</span>
+                            <span data-i18n="menu.home">Главная</span>
+                        </li>
+                        <li class="menu__item" data-section="news" role="menuitem" tabindex="0">
+                            <span class="pointer"> </span>
+                            <span data-i18n="menu.news">Новости</span>
+                        </li>
+                        <li class="menu__item" data-section="roadmap" role="menuitem" tabindex="0">
+                            <span class="pointer"> </span>
+                            <span data-i18n="menu.roadmap">Roadmap</span>
+                        </li>
+                        <li class="menu__item" data-section="contact" role="menuitem" tabindex="0">
+                            <span class="pointer"> </span>
+                            <span data-i18n="menu.contact">Связь</span>
+                        </li>
+                    </ul>
+
+                    <div class="menu__footer">
+                        <span class="menu__hint" data-i18n="menu.hint">v1.0.0</span>
+                    </div>
+                </nav>
+
+                <!-- ============ Content ============ -->
+                <main class="content">
+                    <!-- ========== HOME ========== -->
+                    <section class="section section--active" id="home">
+                        <!-- About -->
+                        <article class="block" id="about">
+                            <div class="block__label" data-i18n="home.about.label">[ О_ПРОЕКТЕ ]</div>
+                            <pre class="ascii" aria-hidden="true">
+ ╔══════════════════════════════════════╗
+ ║   ▓▓▓  T U I   C O N S O L E  ▓▓▓    ║
+ ║      [ terminal user interface ]     ║
+ ╚══════════════════════════════════════╝
+                            </pre>
+                            <h1 class="content__title" data-i18n="home.about.title">О проекте</h1>
+                            <p class="content__text" data-i18n="home.about.text1">
+                                TUI Console — это концепт веб-сайта, вдохновлённый терминальными интерфейсами.
+                            </p>
+                            <p class="content__text" data-i18n="home.about.text2">
+                                Он использует только текстовые символы, монотипные шрифты и цветовую палитру,
+                                характерную для консольных приложений.
+                            </p>
+
+                            <div class="info-block">
+                                <div class="info-block__row">
+                                    <span class="info-block__key" data-i18n="home.about.version">Версия:</span>
+                                    <span class="info-block__value">2vip6</span>
+                                </div>
+                                <div class="info-block__row">
+                                    <span class="info-block__key" data-i18n="home.about.tech">Технологии:</span>
+                                    <span class="info-block__value">HTML / CSS / JS</span>
+                                </div>
+                                <div class="info-block__row">
+                                    <span class="info-block__key" data-i18n="home.about.license">Лицензия:</span>
+                                    <span class="info-block__value value--locked">MIT</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Install -->
+                        <article class="block" id="install">
+                            <div class="block__label" data-i18n="home.install.label">[ УСТАНОВИТЬ ]</div>
+                            <h2 class="content__title" data-i18n="home.install.title">Установить 2vip6</h2>
+                            <p class="content__text" data-i18n="home.install.text">
+                                Скопируйте и выполните команду ниже в вашем терминале.
+                            </p>
+
+                            <div class="install">
+                                <div class="install__header">
+                                    <span class="install__dots">● ● ●</span>
+                                    <span class="install__title">bash — 2vip6</span>
+                                </div>
+                                <div class="install__body">
+                                    <div class="install__line">
+                                        <span class="install__prompt">$</span>
+                                        <code class="install__cmd" id="install-cmd-1">curl -fsSL https://2vip6.dev/install.sh | bash</code>
+                                        <button class="copy-btn" data-copy="#install-cmd-1" data-i18n-title="home.install.copy" title="Скопировать">⧉</button>
+                                    </div>
+                                    <div class="install__line">
+                                        <span class="install__prompt">$</span>
+                                        <code class="install__cmd" id="install-cmd-2">2vip6 init --theme tui</code>
+                                        <button class="copy-btn" data-copy="#install-cmd-2" data-i18n-title="home.install.copy" title="Скопировать">⧉</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form__actions" style="margin-top: var(--gap-md);">
+                                <a class="button button--primary" href="#install" data-i18n="home.install.docs">[ ДОКУМЕНТАЦИЯ ]</a>
+                                <a class="button" href="https://github.com/" target="_blank" rel="noopener" data-i18n="home.install.repo">[ РЕПОЗИТОРИЙ ]</a>
+                            </div>
+                        </article>
+                    </section>
+
+                    <!-- ========== NEWS ========== -->
+                    <section class="section" id="news">
+                        <h1 class="content__title" data-i18n="news.title">Новости</h1>
+                        <p class="content__text" data-i18n="news.subtitle">
+                            Последние обновления и анонсы проекта.
+                        </p>
+
+                        <div class="news" id="news-list">
+                            <div class="news__loading" data-i18n="news.loading">Загрузка новостей...</div>
+                        </div>
+                    </section>
+
+                    <!-- ========== ROADMAP ========== -->
+                    <section class="section" id="roadmap">
+                        <h1 class="content__title" data-i18n="roadmap.title">Roadmap</h1>
+                        <p class="content__text" data-i18n="roadmap.subtitle">
+                            Актуальный статус разработки доступен на нашей доске YouGile.
+                        </p>
+
+                        <div class="roadmap">
+                            <div class="roadmap__card">
+                                <div class="roadmap__icon">▤</div>
+                                <div class="roadmap__body">
+                                    <div class="roadmap__name" data-i18n="roadmap.board">YouGile Board</div>
+                                    <div class="roadmap__desc" data-i18n="roadmap.desc">
+                                        Канбан-доска с задачами, эпиками и прогрессом.
+                                    </div>
+                                </div>
+                                <a
+                                    class="button button--primary roadmap__btn"
+                                    href="https://ru.yougile.com/board/REPLACE_WITH_YOUR_BOARD_ID"
+                                    target="_blank"
+                                    rel="noopener"
+                                    data-i18n="roadmap.open"
+                                >[ ОТКРЫТЬ ДОСКУ → ]</a>
+                            </div>
+
+                            <div class="roadmap__embed">
+                                <div class="roadmap__embed-label" data-i18n="roadmap.embed">[ ВСТРОЕННАЯ_ДОСКА ]</div>
+                                <div class="roadmap__embed-frame">
+                                    <iframe
+                                        src="https://ru.yougile.com/board/REPLACE_WITH_YOUR_BOARD_ID"
+                                        title="YouGile Roadmap"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer"
+                                    ></iframe>
+                                </div>
+                                <p class="roadmap__note" data-i18n="roadmap.note">
+                                    Если доска не отображается — используйте кнопку «Открыть доску».
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ========== CONTACT ========== -->
+                    <section class="section" id="contact">
+                        <h1 class="content__title" data-i18n="contact.title">Связь</h1>
+                        <p class="content__text" data-i18n="contact.subtitle">
+                            Выберите удобный канал для связи с нами.
+                        </p>
+
+                        <div class="contact-grid">
+                            <a class="contact-card" href="https://t.me/your_username" target="_blank" rel="noopener">
+                                <span class="contact-card__icon">✈</span>
+                                <span class="contact-card__name">Telegram</span>
+                                <span class="contact-card__value">@your_username</span>
+                                <span class="contact-card__arrow">→</span>
+                            </a>
+                            <a class="contact-card" href="https://github.com/your_username" target="_blank" rel="noopener">
+                                <span class="contact-card__icon">◆</span>
+                                <span class="contact-card__name">GitHub</span>
+                                <span class="contact-card__value">github.com/your_username</span>
+                                <span class="contact-card__arrow">→</span>
+                            </a>
+                            <a class="contact-card" href="mailto:hello@example.com">
+                                <span class="contact-card__icon">✉</span>
+                                <span class="contact-card__name">Email</span>
+                                <span class="contact-card__value">hello@example.com</span>
+                                <span class="contact-card__arrow">→</span>
+                            </a>
+                            <a class="contact-card" href="https://discord.gg/your_invite" target="_blank" rel="noopener">
+                                <span class="contact-card__icon">◈</span>
+                                <span class="contact-card__name">Discord</span>
+                                <span class="contact-card__value">discord.gg/your_invite</span>
+                                <span class="contact-card__arrow">→</span>
+                            </a>
+                        </div>
+
+                        <div class="block" style="margin-top: var(--gap-lg);">
+                            <div class="block__label" data-i18n="contact.form.label">[ НАПИСАТЬ_НАМ ]</div>
+                            <h2 class="content__title" data-i18n="contact.form.title">Отправить сообщение</h2>
+                            <form class="form" id="contact-form">
+                                <div class="form__row">
+                                    <label class="form__label" for="c-name" data-i18n="contact.form.name">Имя:</label>
+                                    <input class="form__input" type="text" id="c-name" required />
+                                </div>
+                                <div class="form__row">
+                                    <label class="form__label" for="c-email" data-i18n="contact.form.email">Email:</label>
+                                    <input class="form__input" type="email" id="c-email" required />
+                                </div>
+                                <div class="form__row">
+                                    <label class="form__label" for="c-msg" data-i18n="contact.form.message">Сообщение:</label>
+                                    <textarea class="form__input form__input--textarea" id="c-msg" rows="4" required></textarea>
+                                </div>
+                                <div class="form__actions">
+                                    <button class="button button--primary" type="submit" data-i18n="contact.form.submit">[ ОТПРАВИТЬ ]</button>
+                                    <button class="button" type="reset" data-i18n="contact.form.reset">[ СБРОСИТЬ ]</button>
+                                </div>
+                                <div class="form__status" id="contact-status" role="status"></div>
+                            </form>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- ===================== Footer ===================== -->
+        <footer class="terminal__footer">
+            <span data-i18n="footer.hint">↑↓ — навигация │ ENTER — выбор │ TAB — поле</span>
+            <span class="terminal__footer-right">
+                <span data-i18n="footer.lang">Язык:</span>
+                <span id="current-lang">RU</span>
+            </span>
+        </footer>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/markdown.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

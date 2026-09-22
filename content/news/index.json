@@ -1,0 +1,29 @@
+[
+    {
+        "file": "2026-01-15-release.md",
+        "date": "2026-01-15",
+        "title": {
+            "ru": "Релиз 2vip6 — первая стабильная версия",
+            "en": "Release 2vip6 — first stable version"
+        },
+        "tags": ["release", "2vip6"]
+    },
+    {
+        "file": "2026-02-01-update.md",
+        "date": "2026-02-01",
+        "title": {
+            "ru": "Обновление: улучшения интерфейса",
+            "en": "Update: interface improvements"
+        },
+        "tags": ["update", "ui"]
+    },
+    {
+        "file": "2026-03-10-roadmap.md",
+        "date": "2026-03-10",
+        "title": {
+            "ru": "Публичный roadmap на YouGile",
+            "en": "Public roadmap on YouGile"
+        },
+        "tags": ["roadmap"]
+    }
+]

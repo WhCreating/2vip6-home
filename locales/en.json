@@ -1,0 +1,72 @@
+{
+    "title": "TUI Console — terminal interface",
+    "header": { "logo": "▓ TUI://CONSOLE" },
+    "frame": { "label": "[ MAIN_MENU ]" },
+    "theme": {
+        "toggle": "Toggle theme",
+        "dark": "DARK",
+        "light": "LIGHT"
+    },
+    "menu": {
+        "title": "── NAVIGATION ──",
+        "home": "Home",
+        "news": "News",
+        "roadmap": "Roadmap",
+        "contact": "Contact",
+        "hint": "v1.0.0"
+    },
+    "home": {
+        "about": {
+            "label": "[ ABOUT ]",
+            "title": "About the project",
+            "text1": "TUI Console is a website concept inspired by terminal interfaces.",
+            "text2": "It uses only text characters, monospace fonts, and a color palette typical of console applications.",
+            "version": "Version:",
+            "tech": "Tech:",
+            "license": "License:"
+        },
+        "install": {
+            "label": "[ INSTALL ]",
+            "title": "Install 2vip6",
+            "text": "Copy and run the command below in your terminal.",
+            "copy": "Copy",
+            "docs": "[ DOCS ]",
+            "repo": "[ REPOSITORY ]"
+        }
+    },
+    "news": {
+        "title": "News",
+        "subtitle": "Latest updates and project announcements.",
+        "loading": "Loading news...",
+        "empty": "No news yet.",
+        "error": "Failed to load news."
+    },
+    "roadmap": {
+        "title": "Roadmap",
+        "subtitle": "The current development status is available on our YouGile board.",
+        "board": "YouGile Board",
+        "desc": "Kanban board with tasks, epics and progress.",
+        "open": "[ OPEN BOARD → ]",
+        "embed": "[ EMBEDDED_BOARD ]",
+        "note": "If the board doesn't render — use the \"Open board\" button."
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "Choose a convenient channel to reach us.",
+        "form": {
+            "label": "[ WRITE_TO_US ]",
+            "title": "Send a message",
+            "name": "Name:",
+            "email": "Email:",
+            "message": "Message:",
+            "submit": "[ SEND ]",
+            "reset": "[ RESET ]",
+            "sending": "Sending...",
+            "success": "✓ Message sent. We'll get back to you."
+        }
+    },
+    "footer": {
+        "hint": "↑↓ — navigate │ ENTER — select │ TAB — field",
+        "lang": "Lang:"
+    }
+}
